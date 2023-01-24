@@ -45,25 +45,46 @@ class _PostWidgetState extends State<PostWidget> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      // mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(widget.profileName),
-                            Text(widget.username),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(widget.profileName),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(widget.username),
+                                ),
+                              ],
+                            ),
                             IconButton(
                                 onPressed: () {},
                                 icon: const Icon(Icons.more_vert)),
                           ],
                         ),
                         //Column-Starts-Row2-Column2
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(widget.tweetText),
-                        ),
+
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 24.0, horizontal: 8.0),
+                                child: Text(widget.tweetText),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             IconButton(
                                 onPressed: () {},
