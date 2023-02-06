@@ -8,7 +8,7 @@ A clone of twitter being built to experiment dart and flutter.
 | Technology | Official Link |
 | ----------------- |----------------- |
 | Flutter | https://flutter.dev |
-
+ 
 
 ## For local development
 
