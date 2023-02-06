@@ -1,16 +1,17 @@
 # twitterclone
+ 
+A clone of twitter being built to experiment dart and flutter.
 
-A new Flutter project.
 
-## Getting Started
+## Tech Stack
 
-This project is a starting point for a Flutter application.
+| Technology | Official Link |
+| ----------------- |----------------- |
+| Flutter | https://flutter.dev |
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## For local development
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Install all the dependencies from the `pubspec.yaml` file 
+2. _cd_ into the `lib` folder
+2. Hit `Flutter run` from the terminal
