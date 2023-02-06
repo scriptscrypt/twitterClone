@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:twitterclone/views/BottomNavbar.dart';
 import 'package:twitterclone/views/Menubar.dart';
+import 'package:twitterclone/views/SearchPage.dart';
+import 'package:twitterclone/views/SpacesPageWrapper.dart';
+import 'package:twitterclone/views/TwitterSpacesPage.dart';
 import 'views/PostsWrapper.dart';
 
 void main() {
@@ -37,6 +40,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 //Thank-you-ChatGPT-Declaration-required-[Final]
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  int selectedItemIndex = 2;
+  List<Widget> varBodySwap = const [
+    PostsData(),
+    SearchPage(),
+    SpacesPageWrapper(),
+    // Text("Notifications",),
+    Text("--- Under development ---"),
+    // Text("Inbox"),
+    Text("--- Under development ---"),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +60,11 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         title: IconButton(
           icon: Image.asset("assets/iconTwitter.png"),
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              selectedItemIndex = 0;
+            });
+          },
         ),
         //From-AI----------------
         leading: IconButton(
@@ -68,9 +85,43 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       //From-AI----------------
 
-      body: const PostsData(),
+      body: Center(
+        child: varBodySwap[selectedItemIndex],
+      ),
 
-      bottomNavigationBar: const widgetBottomNavBar(),
+      bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_rounded,
+              ),
+              backgroundColor: Colors.blue,
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search_rounded),
+              label: "Search",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.mic_rounded),
+              backgroundColor: Colors.blue,
+              label: "Spaces",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications_rounded),
+              label: "Notifications",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.inbox_rounded),
+              label: "Inbox",
+            )
+          ],
+          currentIndex: selectedItemIndex,
+          onTap: (int index) {
+            setState(() {
+              selectedItemIndex = index;
+            });
+          }),
     );
   }
 }
